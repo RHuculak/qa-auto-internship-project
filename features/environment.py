@@ -11,7 +11,7 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     # context.driver = webdriver.Chrome()
-    context.driver = webdriver.Firefox()
+    # context.driver = webdriver.Firefox()
 
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
@@ -24,8 +24,6 @@ def browser_init(context, scenario_name):
     # options.add_argument("--incognito")
     # context.driver = webdriver.Chrome(options=options)
     #
-
-
 
     # Browserstack config
     # bs_user = 'ryan_LUZehz'
@@ -49,7 +47,13 @@ def browser_init(context, scenario_name):
     # context.driver = webdriver.Remote(command_executor=url, options=options)
     #
 
+    # mobile emulated testing
+    mobile_emulation = {"deviceName": "Nexus 5"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(options=chrome_options)
     #
+
     context.driver.maximize_window()
     context.driver.implicitly_wait(2)
     context.driver.wait = WebDriverWait(context.driver, 10)
