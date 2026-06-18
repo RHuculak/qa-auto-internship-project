@@ -36,3 +36,8 @@ class Page:
         logger.info(f'Verifying url: {url}')
         sleep(6)
         assert url in self.driver.current_url
+
+    def scroll_to(self, *element):
+        ele = self.driver.find_element(*element)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", ele)
+        sleep(2)
