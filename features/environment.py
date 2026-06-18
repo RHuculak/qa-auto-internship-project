@@ -11,7 +11,7 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     # context.driver = webdriver.Chrome()
-    # context.driver = webdriver.Firefox()
+    context.driver = webdriver.Firefox()
 
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
@@ -19,10 +19,10 @@ def browser_init(context, scenario_name):
     # context.driver = webdriver.Chrome(service=service, options=options)
 
     # Headless mode
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument("--incognito")
-    context.driver = webdriver.Chrome(options=options)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # options.add_argument("--incognito")
+    # context.driver = webdriver.Chrome(options=options)
     #
 
 
